@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil - Arda Build</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .profile-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+        }
+        .profile-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .profile-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .profile-box {
+            background: #2b3245;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .logout-btn {
+            background: #ff6f61;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <i class="fa-solid fa-dumbbell"></i>
+        </div>
+        <nav class="navbar">
+            <a href="/" class="button">Ana Sayfa</a>
+            <a href="/iletisim" class="button">İletişim</a>
+        </nav>
+        <form action="/auth/logout" method="POST" style="margin-left: auto;">
+            <button type="submit" class="logout-btn">Çıkış Yap</button>
+        </form>
+    </header>
+
+    <div class="profile-container">
+        <div class="profile-header">
+            <h1>Profilim</h1>
+        </div>
+        <div class="profile-content">
+            <div class="profile-box">
+                <h2>Kişisel Bilgiler</h2>
+                <p>Ad: <%= user?.ad %></p>
+                <p>Soyad: <%= user?.soyad %></p>
+                <p>Email: <%= user?.email %></p>
+            </div>
+            <div class="profile-box">
+                <h2>Program Bilgileri</h2>
+                <p>Aktif Paket: 6 Haftalık Program</p> <!-- Veri Tabanı bağlanınca dinamik hale getirilecek -->
+                <p>Başlangıç: 01.04.2024</p> <!-- Veri Tabanı bağlanınca dinamik hale getirilecek -->
+                <p>Bitiş: 15.05.2024</p> <!-- Veri Tabanı bağlanınca dinamik hale getirilecek -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>
